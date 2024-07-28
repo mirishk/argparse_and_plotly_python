@@ -35,39 +35,39 @@ To enhance the analysis, I utilize Plotly for creating interactive visualization
 
 A bar chart that dynamically displays the top N directors or actors based on parameters, the default N parameter is 5. 
 
+##### Chart Example
 To generate this visualization, you can run the following command:
 ```bash
 python main.py -col cast
 ```
-##### Chart Example
 ![Example Image](images/viz1.png)
 
 ### 2. Amount Over Time Line Chart
 A line chart that displays the Count of Movies and TV Shows Added Over Time, illustrating the trend in content additions to Netflix categorized by year or month parameter. Additionally, it highlights the average count values for both movies and TV shows.
 
+##### Chart Example
 To generate this visualization, you can run the following command:
 ```bash
 python main.py -i month
 ```
-##### Chart Example
 ![Example Image](images/viz2.png)
 
 ### 3. Distribution by Country Map Chart
 A world map chart that visualizes the distribution of content counts across different countries. The coloring intensity on the map represents the count of content entries in each country. 
 
+##### Chart Example
 To generate this visualization, you can run the following command:
 ```bash
 python main.py -tp TV
 ```
-##### Chart Example
 ![Example Image](images/viz3.png)
 
 ### 4. Percentage of Age Group by Country Scatter Chart
 A scatter plot that visualizes the percentage of each age group of rating within each country, filtered by a specified total count threshold, the default threshold parameter is 100. 
 
+##### Chart Example
 To generate this visualization, you can run the following command:
 ```bash
 python main.py -tp Movie -r
 ```
-##### Chart Example
 ![Example Image](images/viz4.png)
