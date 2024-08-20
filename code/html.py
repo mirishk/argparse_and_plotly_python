@@ -1,5 +1,9 @@
-# Create HTML content with background image and Plotly chart
+import webbrowser as wb
+
 def embedded_html_content(chart):
+    
+    # Create HTML content with background image and Plotly chart
+
     html_content = f'''
     <!DOCTYPE html>
     <html>
@@ -33,3 +37,15 @@ def embedded_html_content(chart):
     </html>
     '''
     return html_content
+
+
+def save_and_open_html(plotly_chart, html_path):
+    
+    #Save the Plotly chart to an HTML file and open it in the default web browser.
+    
+    html_content = embedded_html_content(plotly_chart)
+    
+    with open(html_path, 'w', encoding='utf-8') as file:
+        file.write(html_content)
+    
+    wb.open(html_path)
