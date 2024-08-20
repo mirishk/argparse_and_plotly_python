@@ -161,3 +161,30 @@ class Visualizer:
 
         return _chart_in_html(scatter_fig)
 
+    #==========================================================
+    
+    @staticmethod
+    def visualize_data(df, args, manipulator):
+        
+        #Visualize data based on the provided arguments using Plotly.
+        
+        if df is None:
+            raise ValueError("DataFrame is None. Ensure the data is loaded correctly.")
+        
+        plotly_chart = None
+
+        if args.column:
+            grouped_df = manipulator.split_and_count(args.column, args.topN)
+            plotly_chart = Visualizer.plot_topN(grouped_df, args.column, args.topN)
+        elif args.interval:
+            grouped_df = manipulator.group_by_time(args.interval)
+            plotly_chart = Visualizer.plot_line_chart(grouped_df, args.interval)
+        elif args.type:
+            if not args.rating:
+                grouped_df = manipulator.group_by_country(args.type)
+                plotly_chart = Visualizer.plot_world_map(grouped_df, args.type)
+            else:
+                grouped_df = manipulator.group_by_country_and_rating_age(args.type, args.total_counts)
+                plotly_chart = Visualizer.scatter_plot_of_age_group(grouped_df, args.type, args.total_counts)
+        
+        return plotly_chart
